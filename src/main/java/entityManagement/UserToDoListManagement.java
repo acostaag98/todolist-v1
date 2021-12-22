@@ -12,17 +12,17 @@ public class UserToDoListManagement implements createObject, updateObject, delet
 
 
     @Override
-    public void create_Object() {
+    public void create() {
 
     }
 
     @Override
-    public void delete_Object() {
+    public void delete() {
 
     }
 
     @Override
-    public void update_Object() {
+    public void update() {
 
     }
 }

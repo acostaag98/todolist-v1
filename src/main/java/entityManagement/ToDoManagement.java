@@ -11,17 +11,17 @@ public class ToDoManagement implements createObject, updateObject, deleteObject 
 
 
     @Override
-    public void create_Object() {
+    public void create() {
 
     }
 
     @Override
-    public void delete_Object() {
+    public void delete() {
 
     }
 
     @Override
-    public void update_Object() {
+    public void update() {
 
     }
 }
