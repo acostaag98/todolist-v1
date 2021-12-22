@@ -10,7 +10,6 @@ public class SaveFile implements Serializable {
     private ObjectOutputStream oos;
 
     public void Guardar(User usuario){
-
         try {
             this.oos = new ObjectOutputStream(new FileOutputStream(this.miFile));
             oos.writeObject(usuario);
