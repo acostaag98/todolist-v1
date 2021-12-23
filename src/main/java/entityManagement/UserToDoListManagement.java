@@ -1,18 +1,22 @@
 package entityManagement;
 
 import entities.User;
-import interfaces.createObject;
+import interfaces.addObject;
 import interfaces.deleteObject;
 import interfaces.updateObject;
 
-public class UserToDoListManagement implements createObject, updateObject, deleteObject {
+public class UserToDoListManagement implements addObject, updateObject, deleteObject {
 
     private User user;
     private int IdToDo;
 
 
+    public void PrintList(){
+
+    }
+
     @Override
-    public void create() {
+    public void add() {
 
     }
 
@@ -25,4 +29,6 @@ public class UserToDoListManagement implements createObject, updateObject, delet
     public void update() {
 
     }
+
+
 }
