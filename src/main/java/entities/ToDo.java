@@ -8,7 +8,6 @@ import enums.priorityType;
 import enums.stateType;
 
 @Data
-@AllArgsConstructor
 public class ToDo implements Serializable {
     private String Id;
     private String Title;
