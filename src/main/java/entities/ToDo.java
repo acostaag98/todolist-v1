@@ -10,11 +10,31 @@ import enums.stateType;
 @Data
 @AllArgsConstructor
 public class ToDo implements Serializable {
-    private int Id;
+    private String Id;
     private String Title;
     private String Description;
     private priorityType Priority;
-    private Date initDate;
+    private Date InitDate;
     private Date EndDate;
     private stateType State;
+
+    public ToDo( String title, String description, priorityType priority, Date initDate, Date endDate, stateType state) {
+        Title = title;
+        Description = description;
+        Priority = priority;
+        InitDate = initDate;
+        EndDate = endDate;
+        State = state;
+        Id = assignUniqueId(InitDate.hashCode());
+    }
+
+    private String assignUniqueId(int hash){
+        int tmpID = hash;
+
+        if (tmpID < 1){
+            tmpID = -1 * tmpID;
+        }
+        return String.valueOf( tmpID );
+    }
+
 }
