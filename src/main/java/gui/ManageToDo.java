@@ -11,14 +11,13 @@ public class ManageToDo extends JFrame {
     private JLabel lblTitle;
     private JTable tableToDo;
     private JPanel pnlTable;
-    private JPanel pnlUserInfo;
     private JScrollPane scrollPane;
     private JTable tableMail;
-    private JPanel pnlIcon;
-    private JPanel pnlInfo;
-    private JLabel lblNameUser;
-    private JLabel lblDNI;
-    private JLabel lblEmail;
+    private JButton txtButton;
+    private JButton PDFButton;
+    private JButton excelButton;
+    private JButton actualizarButton;
+    private JButton button1;
 
 
     public static void main(String[] args) {

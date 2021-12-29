@@ -17,12 +17,12 @@ public class ToDo implements Serializable {
     private Date EndDate;
     private stateType State;
 
-    public ToDo( String title, String description, priorityType priority, Date initDate, Date endDate, stateType state) {
-        Title = title;
-        Description = description;
+    public ToDo() {
+        Title = "";
+        Description = "";
         Priority = priorityType.LOW ;
-        InitDate = initDate;
-        EndDate = endDate;
+        InitDate = new Date();
+        EndDate = new Date();
         State = stateType.NOT_STARTED;
         Id = assignUniqueId(InitDate.hashCode());
     }
