@@ -3,6 +3,7 @@ package entitiesGUIForms;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.DateTimePicker;
 import entities.ToDo;
+import enums.actionType;
 import enums.priorityType;
 import enums.stateType;
 import helpers.DateConverter;
@@ -25,7 +26,7 @@ import java.util.Date;
 public class ToDoGUIForm implements showGUIForm {
 
     @Override
-    public void show(Object toDo) {
+    public boolean show(Object toDo, actionType action) {
 
         DateConverter dateConverter = new DateConverter();
         EnumsManagement enumsManagement = new EnumsManagement();
@@ -68,7 +69,7 @@ public class ToDoGUIForm implements showGUIForm {
 
 
 
-        int result = JOptionPane.showConfirmDialog(null, panel, "Test",
+        int result = JOptionPane.showConfirmDialog(null, panel, action.getValue()+" "+ "ToDo",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
 
@@ -86,15 +87,17 @@ public class ToDoGUIForm implements showGUIForm {
 
                 JOptionPane.showMessageDialog(null, "The Task has been saved successfully", "Success", JOptionPane.ERROR_MESSAGE);
 
+                return true;
+
             }catch ( Exception ex){
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+
+                return false;
             }
-
-
-
 
         }
 
+        return false;
 
     }
 

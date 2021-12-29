@@ -1,11 +1,12 @@
 package entitiesGUIForms;
 
+import enums.actionType;
 import interfaces.showGUIForm;
 
 public class UserGUIForm implements showGUIForm {
 
     @Override
-    public void show(Object user) {
-
+    public boolean show(Object user, actionType action) {
+        return false;
     }
 }

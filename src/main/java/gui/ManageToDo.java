@@ -21,10 +21,10 @@ public class ManageToDo extends JFrame {
 
 
     public static void main(String[] args) {
-        JFrame frame = new ManageToDo("Gestionar ToDo");
-        frame.setSize(1000, 500);
+        JFrame frame = new ManageToDo("ToDo-app");
+        frame.setSize(1500, 500);
         frame.setVisible(true);
-        frame.setResizable(false);
+        frame.setResizable(true);
     }
 
     public ManageToDo(String title) {

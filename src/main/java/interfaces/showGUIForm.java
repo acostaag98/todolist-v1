@@ -1,6 +1,8 @@
 package interfaces;
 
+import enums.actionType;
+
 public interface showGUIForm {
 
-    void show(Object obj);
+    boolean show(Object obj, actionType action);
 }
