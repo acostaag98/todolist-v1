@@ -20,10 +20,10 @@ public class ToDo implements Serializable {
     public ToDo( String title, String description, priorityType priority, Date initDate, Date endDate, stateType state) {
         Title = title;
         Description = description;
-        Priority = priority;
+        Priority = priorityType.LOW ;
         InitDate = initDate;
         EndDate = endDate;
-        State = state;
+        State = stateType.NOT_STARTED;
         Id = assignUniqueId(InitDate.hashCode());
     }
 
