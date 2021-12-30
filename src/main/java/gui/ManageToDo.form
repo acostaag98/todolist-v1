@@ -207,7 +207,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="Actualizar"/>
+              <text value="Update"/>
             </properties>
           </component>
           <hspacer id="b9234">

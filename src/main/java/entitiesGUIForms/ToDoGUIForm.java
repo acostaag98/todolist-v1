@@ -14,13 +14,10 @@ import interfaces.showGUIForm;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.util.Arrays;
 import java.util.Date;
-
+import java.util.Locale;
 
 
 public class ToDoGUIForm implements showGUIForm {
@@ -39,9 +36,12 @@ public class ToDoGUIForm implements showGUIForm {
         JTextArea desInput = new JTextArea();
         JComboBox priorityCombo = new JComboBox(priorityItems);
         JComboBox stateCombo = new JComboBox(stateItems);
-        DatePickerSettings DT = new DatePickerSettings();
-        DateTimePicker InitDate_input = new DateTimePicker();
-        DateTimePicker EndDate_input = new DateTimePicker(DT,null);
+        DatePickerSettings InitDate_Settings = new DatePickerSettings();
+        DatePickerSettings EndDate_Settings = new DatePickerSettings();
+        InitDate_Settings.setLocale(Locale.ENGLISH);
+        EndDate_Settings.setLocale(Locale.ENGLISH);
+        DateTimePicker InitDate_input = new DateTimePicker(InitDate_Settings,null);
+        DateTimePicker EndDate_input = new DateTimePicker(EndDate_Settings,null);
 
         panel.add(new JLabel("Title"));
         panel.add(titleInput);
