@@ -1,12 +1,14 @@
 package entityManagement;
 
 
+
 import entities.User;
 import entitiesGUIForms.UserGUIForm;
 import enums.actionType;
 import interfaces.createObject;
+import interfaces.updateObject;
 
-public class UserManagement implements createObject {
+public class UserManagement implements createObject, updateObject {
 
     private UserGUIForm GuiForm = new UserGUIForm();
 
@@ -17,5 +19,10 @@ public class UserManagement implements createObject {
             return user;
         }
         return null;
+    }
+
+    @Override
+    public void update(Object user) {
+        this.GuiForm.show( (User) user, actionType.UPDATE );
     }
 }

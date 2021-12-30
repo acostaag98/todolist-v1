@@ -74,12 +74,24 @@ public class ManageToDo extends JFrame {
             }
         });
 
+        actualizarButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                UpdateUser();
+            }
+        });
     }
+
 
     public void addToDoToUser(){
         userToDoListManagement.add( this.user );
         LoadTableToDo( this.user );
         SaveUser();
+    }
+
+    public void showToDoDetail(String ID){
+        this.userToDoListManagement.showDetail( this.user, ID );
     }
 
     public void updateToDo(String ID){
@@ -116,6 +128,12 @@ public class ManageToDo extends JFrame {
     public void SaveUser(){
         this.saveFile.Guardar(this.user);
 
+    }
+
+    public void UpdateUser(){
+        this.userManagement.update( this.user );
+        printUserInfoInDashboard();
+        SaveUser();
     }
 
     public void printUserInfoInDashboard(){
@@ -161,7 +179,7 @@ public class ManageToDo extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = String.valueOf( tableToDo.getValueAt(tableToDo.getSelectedRow(), 0) ) ;
-                System.out.println("View:" + id);
+                showToDoDetail( id );
             }
         });
 
@@ -169,7 +187,6 @@ public class ManageToDo extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = String.valueOf( tableToDo.getValueAt(tableToDo.getSelectedRow(), 0) ) ;
-
                 updateToDo(id);
 
             }
@@ -185,6 +202,7 @@ public class ManageToDo extends JFrame {
                 if ( input == 0){
                     deleteToDo( id );
                 }
+
             }
         });
 

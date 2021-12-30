@@ -59,8 +59,13 @@ public class UserGUIForm implements showGUIForm {
                 return false;
             }
 
-        }if (result == JOptionPane.CLOSED_OPTION){
-            System.exit(0);
+        }if (result == JOptionPane.CLOSED_OPTION && action == actionType.NEW){
+
+            int input = JOptionPane.showConfirmDialog(null,"Do you want to Exit?", "Select an Option...",JOptionPane.YES_NO_CANCEL_OPTION);
+            if ( input == 0){
+                System.exit(0);
+            }
+
         }
 
         return false;

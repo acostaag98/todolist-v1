@@ -7,10 +7,21 @@ import lombok.Setter;
 
 import javax.swing.*;
 
-public class UserToDoListManagement implements addObject, updateObjectIntoObject, deleteObjectIntoObject {
+public class UserToDoListManagement implements addObject, updateObjectIntoObject, deleteObjectIntoObject, showObjectDetail_IntoObject {
 
 
     private ToDoManagement toDoManagement = new ToDoManagement();
+
+    @Override
+    public void showDetail(Object user, String toDoID) {
+        int position = searchToDo( (User) user, toDoID);
+
+        if (position < 0){
+            JOptionPane.showMessageDialog(null, "The ToDo doesn't exist", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        this.toDoManagement.showDetail( ((User) user).getToDos().get(position) );
+    }
 
 
     @Override
@@ -53,6 +64,7 @@ public class UserToDoListManagement implements addObject, updateObjectIntoObject
         }
         return -1;
     }
+
 
 
 }
