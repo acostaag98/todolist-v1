@@ -85,8 +85,6 @@ public class ToDoGUIForm implements showGUIForm {
 
                 ( (ToDo) toDo ).setState( enumsManagement.findStateByValue( stateCombo.getSelectedItem().toString() ) );
 
-                JOptionPane.showMessageDialog(null, "The Task has been saved successfully", "Success", JOptionPane.ERROR_MESSAGE);
-
                 return true;
 
             }catch ( Exception ex){

@@ -2,5 +2,5 @@ package interfaces;
 
 public interface updateObject {
 
-     void update();
+     void update( Object obj );
 }

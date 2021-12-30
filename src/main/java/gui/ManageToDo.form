@@ -69,7 +69,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="eab75" class="javax.swing.JButton" binding="button1" default-binding="true">
+              <component id="eab75" class="javax.swing.JButton" binding="newToDo_button">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -152,14 +152,14 @@
               <text value="User Name"/>
             </properties>
           </component>
-          <component id="f26b1" class="javax.swing.JLabel">
+          <component id="f26b1" class="javax.swing.JLabel" binding="UserName_Label">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="171" height="33"/>
               </grid>
             </constraints>
             <properties>
-              <text value="José Adolfo Izaguirre Flores"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="6d6f0" class="javax.swing.JLabel">
@@ -171,14 +171,14 @@
               <text value="Email"/>
             </properties>
           </component>
-          <component id="fe043" class="javax.swing.JLabel">
+          <component id="fe043" class="javax.swing.JLabel" binding="UserEmail_Label">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false">
                 <preferred-size width="118" height="33"/>
               </grid>
             </constraints>
             <properties>
-              <text value="jaif777@yahoo.com"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="e59db" class="javax.swing.JLabel">
@@ -190,14 +190,14 @@
               <text value="DNI"/>
             </properties>
           </component>
-          <component id="5c446" class="javax.swing.JLabel">
+          <component id="5c446" class="javax.swing.JLabel" binding="UserDNI_Label">
             <constraints>
               <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="100" height="33"/>
               </grid>
             </constraints>
             <properties>
-              <text value="0801199603084"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="e0ecf" class="javax.swing.JButton" binding="actualizarButton" default-binding="true">

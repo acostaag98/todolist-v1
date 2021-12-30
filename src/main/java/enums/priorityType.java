@@ -5,9 +5,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum priorityType {
 
-    LOW("Baja"),
-    MEDIUM("Media"),
-    HIGH("Alta");
+    LOW("Low"),
+    MEDIUM("Medium"),
+    HIGH("High");
 
     @Getter
     private String value;
