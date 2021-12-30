@@ -30,6 +30,10 @@ public class UserToDoListManagement implements addObject, updateObjectIntoObject
 
         if (obj != null){
             ( (User) user ).getToDos().add( (ToDo) obj );
+
+            //TODO add toCommit Function
+            //ToDoCommit toDoCommit = new ToDoCommit(user, (ToDo) obj );
+            //toDoCommit.SendCommit();
         }
     }
 

@@ -55,17 +55,11 @@ public class ManageToDo extends JFrame {
         this.setContentPane(pnlMain);
         this.pack();
 
-        LoadUser();
-
-        String[] columnsNamesToDo = { "ID", "Title:", "Priority:", "DeadLine", "Status" };
-        tableModel = new DefaultTableModel(columnsNamesToDo, this.user.getToDos().size());
-
-        LoadTableToDo( this.user );
-
-        popupMenuTable();
+        //Load some GUI components
+        loadGUIComponents();
 
 
-
+        //EVENTS
         newToDo_button.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -83,6 +77,16 @@ public class ManageToDo extends JFrame {
         });
     }
 
+    public void loadGUIComponents(){
+        LoadUser();
+
+        String[] columnsNamesToDo = { "ID", "Title:", "Priority:", "DeadLine", "Status" };
+        tableModel = new DefaultTableModel(columnsNamesToDo, this.user.getToDos().size());
+
+        LoadTableToDo( this.user );
+
+        popupMenuTable();
+    }
 
     public void addToDoToUser(){
         userToDoListManagement.add( this.user );
