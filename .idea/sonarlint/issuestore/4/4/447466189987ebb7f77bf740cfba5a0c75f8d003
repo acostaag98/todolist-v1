@@ -1,0 +1,7 @@
+
+g	java:S116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬µä›þÿÿÿÿ
+e	java:S116"PRename this field "Title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã¨„æ
+p	java:S116"VRename this field "Description" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º¼Â­ùÿÿÿÿ
+h	java:S116"SRename this field "Priority" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…ÿ‡ì
+l	java:S116"RRename this field "EndDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¤ßþùÿÿÿÿ
+e	java:S116"PRename this field "State" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à¸–Ù
