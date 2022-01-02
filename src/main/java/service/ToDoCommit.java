@@ -11,7 +11,6 @@ public class ToDoCommit implements Commit {
     public ToDoCommit(User user, ToDo toDo) {
         this.user = user;
         this.toDo = toDo;
-        sendCommit();
     }
 
     @Override

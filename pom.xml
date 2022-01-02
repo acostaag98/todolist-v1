@@ -13,13 +13,29 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>14</source>
+                    <target>14</target>
                 </configuration>
             </plugin>
         </plugins>
     </build>
     <dependencies>
+        <dependency>
+            <groupId>com.jcalendar</groupId>
+            <artifactId>JCalendar</artifactId>
+            <version>1.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Local_dependencies/jcalendar-1/lib/jcalendar-1.4.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.LGoodDatePicker</groupId>
+            <artifactId>LGoodDatePicker</artifactId>
+            <version>11.2.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Local_dependencies/LGoodDatePicker-11.2.1-Standard/LGoodDatePicker-11.2.1.jar</systemPath>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

@@ -2,5 +2,5 @@ package interfaces;
 
 public interface deleteObject {
 
-      void delete();
+      void delete(Object obj);
 }

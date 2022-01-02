@@ -2,5 +2,5 @@ package interfaces;
 
 public interface addObject {
 
-    void add();
+    void add(Object obj);
 }

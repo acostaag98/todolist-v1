@@ -5,10 +5,13 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum stateType {
 
-    NOT_STARTED("No Comenzado"),
-    IN_PROCESS("En Proceso"),
-    FINISHED("Finalizado");
+    NOT_STARTED("Not Started"),
+    IN_PROCESS("In Progress"),
+    FINISHED("Finished");
 
     @Getter
     private String value;
+
+
+
 }

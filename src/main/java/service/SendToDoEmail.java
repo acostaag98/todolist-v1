@@ -20,7 +20,7 @@ public class SendToDoEmail implements sendEmail {
         this.recipient = recipient;
         this.title = title;
         this.description = description;
-        this.sender = "joseluis.es503@gmail.com";
+        this.sender = "developertest693@gmail.com";
         send_Email();
     }
 
@@ -36,7 +36,7 @@ public class SendToDoEmail implements sendEmail {
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(sender, "G00gl3.c0m");
+                return new PasswordAuthentication(sender, "prueba123");
             }
 
         });

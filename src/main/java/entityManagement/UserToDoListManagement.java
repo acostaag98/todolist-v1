@@ -2,41 +2,72 @@ package entityManagement;
 
 import entities.ToDo;
 import entities.User;
-import interfaces.addObject;
-import interfaces.deleteObject;
-import interfaces.updateObject;
+import interfaces.*;
 import service.ToDoCommit;
 
-public class UserToDoListManagement implements addObject, updateObject, deleteObject {
+import javax.swing.*;
 
-    private User user;
-    private int idToDo;
+public class UserToDoListManagement implements addObject, updateObjectIntoObject, deleteObjectIntoObject, showObjectDetail_IntoObject {
 
 
-    public void PrintList() {
-
-    }
+    private ToDoManagement toDoManagement = new ToDoManagement();
 
     @Override
-    public void add() {
-        for (ToDo toDo : user.getToDos()) {
-            if (this.idToDo == toDo.getId()) {
-                new ToDoCommit(user, toDo);
-            } else {
-                System.out.println("ToDo no encontrado");
-            }
+    public void showDetail(Object user, String toDoID) {
+        int position = searchToDo( (User) user, toDoID);
+
+        if (position < 0){
+            JOptionPane.showMessageDialog(null, "The ToDo doesn't exist", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        this.toDoManagement.showDetail( ((User) user).getToDos().get(position) );
+    }
+
+
+    @Override
+    public void add( Object user ) {
+        Object obj = this.toDoManagement.create();
+
+        if (obj != null){
+            ( (User) user ).getToDos().add( (ToDo) obj );
+
+            ToDoCommit toDoCommit = new ToDoCommit((User) user, (ToDo) obj );
+            toDoCommit.sendCommit();
         }
     }
 
     @Override
-    public void delete() {
+    public void delete( Object user, String toDoID ) {
+        int position = searchToDo( (User) user, toDoID);
 
+        if (position < 0){
+            JOptionPane.showMessageDialog(null, "The ToDo doesn't exist", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        this.toDoManagement.delete( ((User) user).getToDos().get(position) );
+        ((User) user).getToDos().remove(position);
     }
 
     @Override
-    public void update() {
+    public void update(Object user, String toDoID) {
+        int position = searchToDo( (User) user, toDoID);
 
+        if (position < 0){
+            JOptionPane.showMessageDialog(null, "The ToDo doesn't exist", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        this.toDoManagement.update( ((User) user).getToDos().get(position) );
     }
+
+    private int searchToDo(User user, String toDoID){
+        for (int i = 0; i < user.getToDos().size(); i++) {
+            if ( user.getToDos().get(i).getId() == toDoID ){
+                return i;
+            }
+        }
+        return -1;
+    }
+
 
 
 }
