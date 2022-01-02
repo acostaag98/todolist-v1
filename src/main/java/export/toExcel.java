@@ -2,8 +2,6 @@ package export;
 
 import entities.ToDo;
 import entities.User;
-import enums.priorityType;
-import enums.stateType;
 import interfaces.exportDocument;
 import lombok.AllArgsConstructor;
 import org.apache.poi.ss.usermodel.*;
@@ -11,8 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.Date;
+
 
 @AllArgsConstructor
 public class toExcel implements exportDocument {
@@ -45,24 +42,17 @@ public class toExcel implements exportDocument {
                 cell.setCellStyle(headerStyle);
             }
             //Fill data
-            ArrayList<User> a = createDataUser();
             int rownum = 1;
-            for (User i : a) {
+            for (ToDo i : this.user.getToDos()) {
                 Row row = sh.createRow(rownum++);
-                row.createCell(1).setCellValue(i.getName());
-                row.createCell(2).setCellValue(i.getEmail());
+                row.createCell(1).setCellValue(i.getTitle());
+                row.createCell(2).setCellValue(i.getDescription());
+                row.createCell(3).setCellValue(i.getPriority().getValue());
+                row.createCell(4).setCellValue(i.getInitDate().toString());
+                row.createCell(5).setCellValue(i.getEndDate().toString());
+                row.createCell(6).setCellValue(i.getState().getValue());
             }
-            ArrayList<ToDo> b = createDataToDo();
-            for (ToDo i : b) {
-                Row row = sh.createRow(rownum++);
-                row.createCell(1).setCellValue(i.getId());
-                row.createCell(2).setCellValue(i.getTitle());
-                row.createCell(3).setCellValue(i.getDescription());
-                row.createCell(4).setCellValue(i.getPriority().getValue());
-                row.createCell(5).setCellValue(i.getInitDate());
-                row.createCell(6).setCellValue(i.getEndDate());
-                row.createCell(7).setCellValue(i.getState().getValue());
-            }
+
             //Autosize colums
             for (int i = 0; i<columnHeadings.length; i++) {
                 sh.autoSizeColumn(i);
@@ -78,22 +68,6 @@ public class toExcel implements exportDocument {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private static ArrayList<User> createDataUser() {
-        ArrayList<User> a = new ArrayList();
-        a.add(new User("11599959", "Agustín Acosta", "acostaag98@gmail.com", new ArrayList<ToDo>()));
-        return a;
-    }
-    private static ArrayList<ToDo> createDataToDo() {
-        ArrayList<ToDo> b = new ArrayList();
-        b.add(new ToDo(1,"p1","p1", priorityType.LOW, new Date(11, 11, 11),
-                new Date(11, 11, 11), stateType.IN_PROCESS));
-        b.add(new ToDo(2,"p1","p1", priorityType.LOW, new Date(11, 11, 11),
-                new Date(11, 11, 11), stateType.IN_PROCESS));
-        b.add(new ToDo(3,"p1","p1", priorityType.LOW, new Date(11, 11, 11),
-                new Date(11, 11, 11), stateType.IN_PROCESS));
-        return b;
     }
 }
 

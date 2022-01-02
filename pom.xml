@@ -25,7 +25,7 @@
             <artifactId>JCalendar</artifactId>
             <version>1.4</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/Local_dependencies/jcalendar-1/lib/jcalendar-1.4.jar</systemPath>
+            <systemPath>${project.basedir}/Local_dependencies/lib/jcalendar-1.4.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -50,6 +50,11 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>5.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>itext</groupId>
+            <artifactId>itext</artifactId>
+            <version>1.2.3</version>
         </dependency>
     </dependencies>
 

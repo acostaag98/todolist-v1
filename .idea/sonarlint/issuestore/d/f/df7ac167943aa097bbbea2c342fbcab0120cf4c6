@@ -1,9 +1,0 @@
-
-h
-java:S1450
-"RRemove the "oos" field and declare it as a local variable in the relevant methods.(þ°Âå
-;
-java:S1948
-"%Make "oos" transient or serializable.(þ°Âå
-c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀÞÔ²
-S	java:S106"9Replace this use of System.out or System.err by a logger.(©þêÜúÿÿÿÿ

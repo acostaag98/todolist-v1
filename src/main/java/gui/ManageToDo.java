@@ -3,6 +3,9 @@ package gui;
 import entities.User;
 import entityManagement.UserManagement;
 import entityManagement.UserToDoListManagement;
+import export.toExcel;
+import export.toPdf;
+import export.toTxt;
 import file.LoadFile;
 import file.SaveFile;
 import helpers.DateFormater;
@@ -13,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public class ManageToDo extends JFrame {
     private JPanel pnlMain;
@@ -75,6 +79,47 @@ public class ManageToDo extends JFrame {
                 UpdateUser();
             }
         });
+        excelButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                exportToExcel();
+
+            }
+        });
+        PDFButton.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                exportToPdf();
+            }
+        });
+
+
+        txtButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                try {
+                    exportToTxt();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+    }
+    public void exportToPdf() {
+        toPdf topdf = new toPdf(this.user);
+        topdf.export();
+    };
+    public void exportToTxt() throws IOException {
+        toTxt totxt = new toTxt(this.user);
+        totxt.export();
+    }
+    public void exportToExcel() {
+        toExcel toexcel = new toExcel(this.user);
+        toexcel.export();
     }
 
     public void loadGUIComponents(){
