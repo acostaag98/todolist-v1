@@ -11,5 +11,8 @@
         <module name="todolist-v1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Project1-group2" target="14" />
+    </bytecodeTargetLevel>
   </component>
 </project>
