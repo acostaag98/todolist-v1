@@ -1,1 +1,14 @@
-[ToDo(Id=206493794, Title=asdas, Description=asdasd, Priority=LOW, InitDate=Thu Dec 30 14:06:00 ART 2021, EndDate=Thu Dec 30 14:06:00 ART 2021, State=NOT_STARTED), ToDo(Id=206817729, Title=cvx, Description=xcvxc, Priority=LOW, InitDate=Thu Dec 30 14:12:00 ART 2021, EndDate=Thu Dec 30 14:12:00 ART 2021, State=NOT_STARTED), ToDo(Id=206823993, Title=xcvxc, Description=xcvxc, Priority=LOW, InitDate=Thu Dec 30 14:12:00 ART 2021, EndDate=Thu Dec 30 14:12:00 ART 2021, State=NOT_STARTED)]
+Title: Hola
+Description: Esta es la descripcion
+Priority: Low
+Init Date: 
+End Date: 
+State: In Progress
+-------------------------------
+Title: Hacer la comida
+Description: Cocinar para mi familia una comida rica
+Priority: Medium
+Init Date: 
+End Date: 
+State: Not Started
+-------------------------------

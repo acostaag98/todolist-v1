@@ -23,7 +23,7 @@ public class toExcel implements exportDocument {
             //Create sheet
             Sheet sh = workbook.createSheet("List");
             // Create top row with column headings
-            String[] columnHeadings = {"Name", "Email", "ToDo List"};
+            String[] columnHeadings = {"ToDo List", "Title", "Description", "Priority", "State"};
             Font headerFont = workbook.createFont();
             headerFont.setBold(true);
             headerFont.setFontHeight((short) 12);
@@ -48,16 +48,13 @@ public class toExcel implements exportDocument {
                 row.createCell(1).setCellValue(i.getTitle());
                 row.createCell(2).setCellValue(i.getDescription());
                 row.createCell(3).setCellValue(i.getPriority().getValue());
-                row.createCell(4).setCellValue(i.getInitDate().toString());
-                row.createCell(5).setCellValue(i.getEndDate().toString());
-                row.createCell(6).setCellValue(i.getState().getValue());
+                row.createCell(4).setCellValue(i.getState().getValue());
             }
 
             //Autosize colums
             for (int i = 0; i<columnHeadings.length; i++) {
                 sh.autoSizeColumn(i);
             }
-            Sheet sh2 = workbook.createSheet("Second");
             //Write the output file
             FileOutputStream fileout = new FileOutputStream("list.xlsx");
             workbook.write(fileout);

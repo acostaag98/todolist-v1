@@ -53,6 +53,10 @@ public class ManageToDo extends JFrame {
 
     }
 
+    public ManageToDo() {
+
+    }
+
     public ManageToDo(String title) {
         super(title);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -112,7 +116,7 @@ public class ManageToDo extends JFrame {
     public void exportToPdf() {
         toPdf topdf = new toPdf(this.user);
         topdf.export();
-    };
+    }
     public void exportToTxt() throws IOException {
         toTxt totxt = new toTxt(this.user);
         totxt.export();
@@ -217,6 +221,9 @@ public class ManageToDo extends JFrame {
         tableToDo.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
 
     }
+    public JTable ReturnTable() {
+        return this.tableToDo;
+    };
 
     public void popupMenuTable(){
         JPopupMenu popupMenu = new JPopupMenu();
