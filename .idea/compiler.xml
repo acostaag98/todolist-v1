@@ -8,11 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Project1-group2" />
-        <module name="todolist-v1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="todolist-v1" target="14" />
+      <module name="Project1-group2" target="14" />
+      <module name="todolist-v1" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>
