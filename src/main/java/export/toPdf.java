@@ -12,6 +12,7 @@ import interfaces.exportDocument;
 import lombok.AllArgsConstructor;
 
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -56,6 +57,7 @@ public class toPdf implements exportDocument {
             documento.close();
 
             System.out.println("PDF creado!");
+            JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());
         } catch (IOException ex) {

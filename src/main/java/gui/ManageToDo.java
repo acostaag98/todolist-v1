@@ -8,7 +8,7 @@ import export.toPdf;
 import export.toTxt;
 import file.LoadFile;
 import file.SaveFile;
-import helpers.DateFormater;
+import helpers.DateFormatter;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -37,7 +37,7 @@ public class ManageToDo extends JFrame {
 
     private User user;
 
-    private DateFormater dateFormater = new DateFormater();
+    private DateFormatter dateFormatter = new DateFormatter();
     private LoadFile loadFile = new LoadFile();
     private SaveFile saveFile = new SaveFile();
     private UserToDoListManagement userToDoListManagement = new UserToDoListManagement();
@@ -203,7 +203,7 @@ public class ManageToDo extends JFrame {
             String ID = user.getToDos().get(i).getId();
             String Title = user.getToDos().get(i).getTitle();
             String Priority = user.getToDos().get(i).getPriority().getValue();
-            String DeadLine = dateFormater.Formater(user.getToDos().get(i).getEndDate(), "EEE, d MMM yyyy h:mm a");
+            String DeadLine = dateFormatter.Formatter(user.getToDos().get(i).getEndDate(), "EEE, d MMM yyyy h:mm a");
             String Status = user.getToDos().get(i).getState().getValue();
 
             Object[] data = { ID, Title, Priority, DeadLine, Status };

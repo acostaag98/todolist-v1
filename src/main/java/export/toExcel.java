@@ -8,6 +8,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
+import javax.swing.*;
 import java.io.FileOutputStream;
 
 
@@ -60,7 +61,8 @@ public class toExcel implements exportDocument {
             workbook.write(fileout);
             fileout.close();
             workbook.close();
-            System.out.println("Excel creado!");
+            System.out.println("Excel created");
+            JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (Exception e) {
             e.printStackTrace();

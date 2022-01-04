@@ -1,31 +1,31 @@
 package service;
 
-import interfaces.sendEmail;
-import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
+import entities.ToDo;
+import entities.User;
+import interfaces.emailService;
+
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
-public class SendToDoEmail implements sendEmail {
-    private String recipient;
-    private String sender;
-    private String title;
-    private String description;
+public class SendToDoEmailByGmailDOS  implements emailService {
 
-    public SendToDoEmail(String recipient, String title, String description) {
-        this.recipient = recipient;
-        this.title = title;
-        this.description = description;
-        this.sender = "developertest693@gmail.com";
-        send_Email();
-    }
+    private String sender = "kodigoproject1@gmail.com";
+    private String password = "kodigoproject1777";
+
+
+    public SendToDoEmailByGmailDOS(){};
 
     @Override
-    public void send_Email() {
+    public void send_Email(User user , ToDo toDo) {
+
+        String recipient = user.getEmail();
+        String id = String.valueOf(toDo.getId());
+        String subjet = toDo.getTitle();
+        String description = "Estimado usuario: "+ user.getName() + " se le informa que se ha agregado un nuevo " +
+                "ToDo a su lista. \n\nToDo: " + toDo.getTitle() + "\nDescripción: " + toDo.getDescription();
+
         String host = "smtp.gmail.com";
         Properties properties = System.getProperties();
         properties.put("mail.smtp.host", host);
@@ -36,7 +36,7 @@ public class SendToDoEmail implements sendEmail {
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(sender, "prueba123");
+                return new PasswordAuthentication(sender, password);
             }
 
         });
@@ -47,7 +47,7 @@ public class SendToDoEmail implements sendEmail {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(sender));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-            message.setSubject(title);
+            message.setSubject(subjet);
             message.setText(description);
             System.out.println("sending...");
             Transport.send(message);

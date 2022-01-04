@@ -5,6 +5,7 @@ import entities.User;
 import interfaces.exportDocument;
 import lombok.AllArgsConstructor;
 
+import javax.swing.*;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -34,6 +35,7 @@ public class toTxt implements exportDocument {
             list.write("\r\n");
         }
         System.out.println("Txt creado!");
+        JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
         list.close();
     }
 

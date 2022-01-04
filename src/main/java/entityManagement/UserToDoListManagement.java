@@ -3,6 +3,8 @@ package entityManagement;
 import entities.ToDo;
 import entities.User;
 import interfaces.*;
+import service.SendToDoEmailByGmail;
+import service.SendToDoEmailByGmailDOS;
 import service.ToDoCommit;
 
 import javax.swing.*;
@@ -31,7 +33,7 @@ public class UserToDoListManagement implements addObject, updateObjectIntoObject
         if (obj != null){
             ( (User) user ).getToDos().add( (ToDo) obj );
 
-            ToDoCommit toDoCommit = new ToDoCommit((User) user, (ToDo) obj );
+            ToDoCommit toDoCommit = new ToDoCommit((User) user, (ToDo) obj, new SendToDoEmailByGmailDOS() );
             toDoCommit.sendCommit();
         }
     }
