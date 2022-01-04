@@ -7,6 +7,8 @@ import interfaces.showGUIForm;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserGUIForm implements showGUIForm {
 
@@ -39,9 +41,16 @@ public class UserGUIForm implements showGUIForm {
                 String DNItmp = DNI_Input.getText();
                 String NameTmp = NameInput.getText();
                 String EmailTmp = EmailInput.getText();
+                Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+                Matcher matcher = pattern.matcher(EmailTmp);
 
                 if ( DNItmp.length() == 0 || NameTmp.length() == 0 || EmailTmp.length() == 0 ){
                     JOptionPane.showMessageDialog(null, "You must fill all the fields", "Warning", JOptionPane.WARNING_MESSAGE);
+                    return false;
+                }
+
+                else if (matcher.find() == false){
+                    JOptionPane.showMessageDialog(null, "\n" + "the mail format is invalid", "Warning", JOptionPane.WARNING_MESSAGE);
                     return false;
                 }
 

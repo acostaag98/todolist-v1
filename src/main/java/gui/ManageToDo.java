@@ -219,6 +219,11 @@ public class ManageToDo extends JFrame {
         tableToDo.getTableHeader().getColumnModel().getColumn(0).setWidth(0);
         tableToDo.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
         tableToDo.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+
+        if (this.user.getToDos().size() > 0){
+            tableToDo.setRowSelectionInterval(0,0);
+        }
+
     }
     public JTable ReturnTable() {
         return this.tableToDo;
