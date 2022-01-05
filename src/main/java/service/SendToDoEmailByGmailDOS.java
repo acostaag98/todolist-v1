@@ -2,6 +2,7 @@ package service;
 
 import entities.ToDo;
 import entities.User;
+import helpers.DateFormatter;
 import interfaces.emailService;
 
 import javax.mail.*;
@@ -19,12 +20,12 @@ public class SendToDoEmailByGmailDOS  implements emailService {
 
     @Override
     public void send_Email(User user , ToDo toDo) {
-
+        DateFormatter dateFormatter = new DateFormatter();
         String recipient = user.getEmail();
         String id = String.valueOf(toDo.getId());
         String subjet = toDo.getTitle();
         String description = "Estimado usuario: "+ user.getName() + " se le informa que se ha agregado un nuevo " +
-                "ToDo a su lista. \n\nToDo: " + toDo.getTitle() + "\nDescripción: " + toDo.getDescription();
+                "ToDo a su lista. \n\nToDo: " + toDo.getTitle() + "\nDescripción: " + toDo.getDescription() + "\nFecha de Entrega: " + dateFormatter.Formatter(toDo.getEndDate(),"EEE, d MMM yyyy h:mm a") ;
 
         String host = "smtp.gmail.com";
         Properties properties = System.getProperties();
