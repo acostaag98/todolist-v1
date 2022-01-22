@@ -2,6 +2,7 @@ package entitiesGUIForms;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.DateTimePicker;
+import entities.DateRange;
 import entities.ToDo;
 import enums.actionType;
 import enums.priorityType;
@@ -27,6 +28,7 @@ public class ToDoGUIForm implements showGUIForm {
 
         DateConverter dateConverter = new DateConverter();
         EnumsManagement enumsManagement = new EnumsManagement();
+        DateRange dateRange_tmp = new DateRange();
 
         String[] priorityItems =  { priorityType.LOW.getValue(), priorityType.MEDIUM.getValue(), priorityType.HIGH.getValue() };
         String[] stateItems =  { stateType.IN_PROCESS.getValue(), stateType.NOT_STARTED.getValue(), stateType.FINISHED.getValue() };
@@ -75,13 +77,15 @@ public class ToDoGUIForm implements showGUIForm {
 
             try {
 
+                dateRange_tmp.setInitDate( dateConverter.convertLocalDateTimeToDate(InitDate_input.getDateTimeStrict()) );
+                dateRange_tmp.setEndDate( dateConverter.convertLocalDateTimeToDate(EndDate_input.getDateTimeStrict()) );
+
                 ( (ToDo) toDo ).setTitle( titleInput.getText() );
                 ( (ToDo) toDo ).setDescription( desInput.getText() );
 
                 ( (ToDo) toDo ).setPriority( enumsManagement.findPriorityByValue( priorityCombo.getSelectedItem().toString() ) );
 
-                ( (ToDo) toDo ).getDate_range().setInitDate( dateConverter.convertLocalDateTimeToDate(InitDate_input.getDateTimeStrict()) );
-                ( (ToDo) toDo ).getDate_range().setEndDate( dateConverter.convertLocalDateTimeToDate(EndDate_input.getDateTimeStrict()) );
+                ( (ToDo) toDo ).setDate_range(dateRange_tmp);
 
                 ( (ToDo) toDo ).setState( enumsManagement.findStateByValue( stateCombo.getSelectedItem().toString() ) );
 
