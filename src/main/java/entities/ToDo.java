@@ -22,6 +22,7 @@ public class ToDo implements Serializable {
         Priority = priorityType.LOW ;
         Date_range = new DateRange();
         State = stateType.NOT_STARTED;
+        //applying Replace Temp with Query refactoring method
         Id = assignUniqueId(Date_range.getInitDate().hashCode());
     }
 
