@@ -13,13 +13,18 @@ import javax.swing.*;
 public class ToDoGUI_ResumeWindow implements showGUIResume {
 
     DateFormatter dateFormatter = new DateFormatter();
+    StringBuilder result = new StringBuilder();
 
     @Override
     public void show(Object toDo) {
 
+        print( toDo );
+        JOptionPane.showMessageDialog(null, result.toString(), "ToDo Detail", JOptionPane.INFORMATION_MESSAGE);
 
+    }
+
+    public void print( Object toDo ){
         String lineSep = System.lineSeparator();
-        StringBuilder result = new StringBuilder();
         result.append("ToDo information is: ").append(lineSep).append(lineSep);
         result.append("Title: ").append( ((ToDo) toDo).getTitle() ).append(lineSep);
         result.append("Description: ").append( ((ToDo) toDo).getDescription() ).append(lineSep);
@@ -27,8 +32,6 @@ public class ToDoGUI_ResumeWindow implements showGUIResume {
         result.append("Start Date: ").append( dateFormatter.Formatter( ((ToDo) toDo).getDate_range().getInitDate(), "EEE, d MMM yyyy h:mm a" ) ).append(lineSep);
         result.append("End Date: ").append( dateFormatter.Formatter( ((ToDo) toDo).getDate_range().getEndDate(), "EEE, d MMM yyyy h:mm a" ) ).append(lineSep);
         result.append("Status: ").append( ((ToDo) toDo).getState().getValue() );
-
-        JOptionPane.showMessageDialog(null, result.toString(), "ToDo Detail", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }

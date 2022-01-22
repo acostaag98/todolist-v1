@@ -12,35 +12,51 @@ import java.util.regex.Pattern;
 
 public class UserGUIForm implements showGUIForm {
 
+    JPanel panel;
+    JTextField DNI_Input;
+    JTextField NameInput;
+    JTextField EmailInput;
+
     @Override
     public boolean show(Object user, actionType action) {
 
-        JPanel panel = new JPanel(new GridLayout(0,1));
-        JTextField DNI_Input = new JTextField();
-        JTextField NameInput = new JTextField();
-        JTextField EmailInput = new JTextField();
+        createGuiForm( user );
+        return sendForm( user, action );
+    }
 
-        panel.add(new JLabel("DNI"));
-        panel.add(DNI_Input);
-        DNI_Input.setText( ((User) user).getDNI() );
+    @Override
+    public void createGuiForm(Object user) {
 
-        panel.add(new JLabel("Name"));
-        panel.add(NameInput);
-        NameInput.setText( ((User) user).getName() );
+        this.panel = new JPanel(new GridLayout(0,1));
+        this.DNI_Input = new JTextField();
+        this.NameInput = new JTextField();
+        this.EmailInput = new JTextField();
 
-        panel.add(new JLabel("Email"));
-        panel.add(EmailInput);
-        EmailInput.setText( ((User) user).getEmail() );
+        this.panel.add(new JLabel("DNI"));
+        this.panel.add(this.DNI_Input);
+        this.DNI_Input.setText( ((User) user).getDNI() );
 
-        int result = JOptionPane.showConfirmDialog(null, panel, action.getValue()+" "+ "User",
+        this.panel.add(new JLabel("Name"));
+        this.panel.add(this.NameInput);
+        this.NameInput.setText( ((User) user).getName() );
+
+        this.panel.add(new JLabel("Email"));
+        this.panel.add(this.EmailInput);
+        this.EmailInput.setText( ((User) user).getEmail() );
+    }
+
+    @Override
+    public boolean sendForm(Object user, actionType action) {
+
+        int result = JOptionPane.showConfirmDialog(null, this.panel, action.getValue()+" "+ "User",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
 
             try {
 
-                String DNItmp = DNI_Input.getText();
-                String NameTmp = NameInput.getText();
-                String EmailTmp = EmailInput.getText();
+                String DNItmp = this.DNI_Input.getText();
+                String NameTmp = this.NameInput.getText();
+                String EmailTmp = this.EmailInput.getText();
                 Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
                 Matcher matcher = pattern.matcher(EmailTmp);
 
@@ -78,5 +94,6 @@ public class UserGUIForm implements showGUIForm {
         }
 
         return false;
+
     }
 }
