@@ -25,7 +25,7 @@ public class SendToDoEmailByGmailDOS  implements emailService {
         String id = String.valueOf(toDo.getId());
         String subjet = toDo.getTitle();
         String description = "Estimado usuario: "+ user.getName() + " se le informa que se ha agregado un nuevo " +
-                "ToDo a su lista. \n\nToDo: " + toDo.getTitle() + "\nDescripción: " + toDo.getDescription() + "\nFecha de Entrega: " + dateFormatter.Formatter(toDo.getEndDate(),"EEE, d MMM yyyy h:mm a") ;
+                "ToDo a su lista. \n\nToDo: " + toDo.getTitle() + "\nDescripción: " + toDo.getDescription() + "\nFecha de Entrega: " + dateFormatter.Formatter(toDo.getDate_range().getEndDate(),"EEE, d MMM yyyy h:mm a") ;
 
         String host = "smtp.gmail.com";
         Properties properties = System.getProperties();

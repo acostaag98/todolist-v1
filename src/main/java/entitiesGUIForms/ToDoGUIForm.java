@@ -57,11 +57,11 @@ public class ToDoGUIForm implements showGUIForm {
 
         panel.add(new JLabel("Start Date"));
         panel.add(InitDate_input);
-        InitDate_input.setDateTimeStrict( dateConverter.convertDateToLocalDateTimeViaMilisecond( ( (ToDo) toDo ).getInitDate() ) );
+        InitDate_input.setDateTimeStrict( dateConverter.convertDateToLocalDateTimeViaMilisecond( ( (ToDo) toDo ).getDate_range().getInitDate() ) );
 
         panel.add(new JLabel("End Date"));
         panel.add(EndDate_input);
-        EndDate_input.setDateTimeStrict( dateConverter.convertDateToLocalDateTimeViaMilisecond( ( (ToDo) toDo ).getEndDate() ) );
+        EndDate_input.setDateTimeStrict( dateConverter.convertDateToLocalDateTimeViaMilisecond( ( (ToDo) toDo ).getDate_range().getEndDate() ) );
 
         panel.add(new JLabel("State"));
         panel.add(stateCombo);
@@ -80,8 +80,8 @@ public class ToDoGUIForm implements showGUIForm {
 
                 ( (ToDo) toDo ).setPriority( enumsManagement.findPriorityByValue( priorityCombo.getSelectedItem().toString() ) );
 
-                ( (ToDo) toDo ).setInitDate( dateConverter.convertLocalDateTimeToDate(InitDate_input.getDateTimeStrict()) );
-                ( (ToDo) toDo ).setEndDate( dateConverter.convertLocalDateTimeToDate(EndDate_input.getDateTimeStrict()) );
+                ( (ToDo) toDo ).getDate_range().setInitDate( dateConverter.convertLocalDateTimeToDate(InitDate_input.getDateTimeStrict()) );
+                ( (ToDo) toDo ).getDate_range().setEndDate( dateConverter.convertLocalDateTimeToDate(EndDate_input.getDateTimeStrict()) );
 
                 ( (ToDo) toDo ).setState( enumsManagement.findStateByValue( stateCombo.getSelectedItem().toString() ) );
 

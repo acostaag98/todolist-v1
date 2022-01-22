@@ -13,18 +13,16 @@ public class ToDo implements Serializable {
     private String Title;
     private String Description;
     private priorityType Priority;
-    private Date InitDate;
-    private Date EndDate;
+    private DateRange Date_range;
     private stateType State;
 
     public ToDo() {
         Title = "";
         Description = "";
         Priority = priorityType.LOW ;
-        InitDate = new Date();
-        EndDate = new Date();
+        Date_range = new DateRange();
         State = stateType.NOT_STARTED;
-        Id = assignUniqueId(InitDate.hashCode());
+        Id = assignUniqueId(Date_range.getInitDate().hashCode());
     }
 
     private String assignUniqueId(int hash){

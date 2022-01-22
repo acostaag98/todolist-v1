@@ -203,7 +203,7 @@ public class ManageToDo extends JFrame {
             String ID = user.getToDos().get(i).getId();
             String Title = user.getToDos().get(i).getTitle();
             String Priority = user.getToDos().get(i).getPriority().getValue();
-            String DeadLine = dateFormatter.Formatter(user.getToDos().get(i).getEndDate(), "EEE, d MMM yyyy h:mm a");
+            String DeadLine = dateFormatter.Formatter(user.getToDos().get(i).getDate_range().getEndDate(), "EEE, d MMM yyyy h:mm a");
             String Status = user.getToDos().get(i).getState().getValue();
 
             Object[] data = { ID, Title, Priority, DeadLine, Status };
