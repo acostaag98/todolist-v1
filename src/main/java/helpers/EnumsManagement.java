@@ -3,6 +3,7 @@ package helpers;
 import enums.priorityType;
 import enums.stateType;
 
+//applying Introduce Foreign Method
 public class EnumsManagement {
 
     public priorityType findPriorityByValue(String val ){

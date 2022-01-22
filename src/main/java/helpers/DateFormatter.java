@@ -3,7 +3,7 @@ package helpers;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
+//applying Introduce Foreign Method
 public class DateFormatter {
 
     public String Formatter(Date date, String format){
