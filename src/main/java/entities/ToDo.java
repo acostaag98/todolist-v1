@@ -2,6 +2,8 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import helpers.IdGenerator;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import enums.priorityType;
@@ -23,16 +25,10 @@ public class ToDo implements Serializable {
         Date_range = new DateRange();
         State = stateType.NOT_STARTED;
         //applying Replace Temp with Query refactoring method
-        Id = assignUniqueId(Date_range.getInitDate().hashCode());
+        //applying Replace Extract Class refactoring method
+        Id = new IdGenerator().AssignUniqueId( this.Date_range.getInitDate().hashCode() );
     }
 
-    private String assignUniqueId(int hash){
-        int tmpID = hash;
 
-        if (tmpID < 1){
-            tmpID = -1 * tmpID;
-        }
-        return String.valueOf( tmpID );
-    }
 
 }

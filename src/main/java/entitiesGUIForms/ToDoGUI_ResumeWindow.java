@@ -13,7 +13,7 @@ import javax.swing.*;
 public class ToDoGUI_ResumeWindow implements showGUIResume {
 
     DateFormatter dateFormatter = new DateFormatter();
-    StringBuilder result = new StringBuilder();
+    StringBuilder result;
 
     @Override
     public void show(Object toDo) {
@@ -25,6 +25,7 @@ public class ToDoGUI_ResumeWindow implements showGUIResume {
 
     public void print( Object toDo ){
         String lineSep = System.lineSeparator();
+        this.result = new StringBuilder();
         result.append("ToDo information is: ").append(lineSep).append(lineSep);
         result.append("Title: ").append( ((ToDo) toDo).getTitle() ).append(lineSep);
         result.append("Description: ").append( ((ToDo) toDo).getDescription() ).append(lineSep);
