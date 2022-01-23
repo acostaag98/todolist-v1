@@ -57,16 +57,8 @@ public class UserGUIForm implements showGUIForm {
                 String DNItmp = this.DNI_Input.getText();
                 String NameTmp = this.NameInput.getText();
                 String EmailTmp = this.EmailInput.getText();
-                Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-                Matcher matcher = pattern.matcher(EmailTmp);
 
-                if ( DNItmp.length() == 0 || NameTmp.length() == 0 || EmailTmp.length() == 0 ){
-                    JOptionPane.showMessageDialog(null, "You must fill all the fields", "Warning", JOptionPane.WARNING_MESSAGE);
-                    return false;
-                }
-
-                else if (matcher.find() == false){
-                    JOptionPane.showMessageDialog(null, "\n" + "the mail format is invalid", "Warning", JOptionPane.WARNING_MESSAGE);
+                if ( areUserInputsInvalid( DNItmp, NameTmp, EmailTmp ) ){
                     return false;
                 }
 
@@ -95,5 +87,22 @@ public class UserGUIForm implements showGUIForm {
 
         return false;
 
+    }
+
+    private boolean areUserInputsInvalid (String DNItmp, String NameTmp, String EmailTmp){
+
+        Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher matcher = pattern.matcher(EmailTmp);
+
+        if ( DNItmp.length() == 0 || NameTmp.length() == 0 || EmailTmp.length() == 0 ){
+            JOptionPane.showMessageDialog(null, "You must fill all the fields", "Warning", JOptionPane.WARNING_MESSAGE);
+            return true;
+        }
+
+        else if (matcher.find() == false){
+            JOptionPane.showMessageDialog(null, "\n" + "the mail format is invalid", "Warning", JOptionPane.WARNING_MESSAGE);
+            return true;
+        }
+        return false;
     }
 }
