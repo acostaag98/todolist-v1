@@ -6,7 +6,7 @@ import java.util.Locale;
 //applying Introduce Foreign Method
 public class DateFormatter {
 
-    public String Formatter(Date date, String format){
+    public static String Formatter(Date date, String format){
         SimpleDateFormat formatter = new SimpleDateFormat( format, Locale.ENGLISH );
 
         return formatter.format( date );

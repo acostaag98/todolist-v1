@@ -1,16 +1,20 @@
-package test;
+package helpers;
 
 import enums.actionType;
 import enums.priorityType;
 import enums.stateType;
+import gui.ManageToDo;
 import helpers.EnumsManagement;
-import org.junit.Test;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.lang.reflect.AccessibleObject;
-
-import static org.junit.Assert.*;
 
 public class EnumsManagementTest {
+
+    private static final Logger logger = LogManager.getLogger(ManageToDo.class);
 
     @Test
     public void find_PriorityType_By_Wrong_Value() {
