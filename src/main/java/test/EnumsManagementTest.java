@@ -12,8 +12,6 @@ import static org.junit.Assert.*;
 
 public class EnumsManagementTest {
 
-
-
     @Test
     public void find_PriorityType_By_Wrong_Value() {
 
