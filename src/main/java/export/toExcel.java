@@ -28,7 +28,7 @@ public class toExcel implements exportDocument {
             String[] columnHeadings = {"ToDo List", "Title", "Description", "Priority", "State"};
             Font headerFont = workbook.createFont();
             headerFont.setBold(true);
-            headerFont.setFontHeight((short) 12);
+            headerFont.setFontHeightInPoints((short) 12);
             headerFont.setColor(IndexedColors.BLACK.index);
             //Create  a CellStyle with the font
             CellStyle headerStyle = workbook.createCellStyle();

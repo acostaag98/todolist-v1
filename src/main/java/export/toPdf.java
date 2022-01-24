@@ -1,67 +1,78 @@
 package export;
 
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Paragraph;
-
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import entities.ToDo;
 import entities.User;
-
 import interfaces.exportDocument;
 import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.swing.*;
-import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 @AllArgsConstructor
 public class toPdf implements exportDocument {
-
-    private User user;
+    com.itextpdf.text.Document documento;
+    FileOutputStream archivo;
+    com.itextpdf.text.Paragraph titulo;
+    User user;
     private static final Logger logger = LogManager.getLogger(toPdf.class.getClass());
+
+    public toPdf(User user){
+        this.user = user;
+        documento = new Document();
+        titulo = new com.itextpdf.text.Paragraph("ToDos");
+    }
 
     @Override
     public void export() {
-        File list = new File("list.pdf");
-        try (PdfWriter pdfWriter = new PdfWriter(list)) {
-            PdfDocument pdfDocument = new PdfDocument(pdfWriter);
-            Document documento = new Document(pdfDocument);
-            for (ToDo todo : this.user.getToDos() ) {
-                Paragraph setTitle = new Paragraph("Tarea a realizar:");
-                Paragraph title = new Paragraph(String.valueOf(todo.getTitle()));
-                Paragraph setDescription = new Paragraph("Description: ");
-                Paragraph description = new Paragraph(String.valueOf(todo.getDescription()));
-                Paragraph setPriority = new Paragraph("Priority: ");
-                Paragraph priority = new Paragraph(String.valueOf(todo.getPriority()));
-                Paragraph setStatus = new Paragraph("State:");
-                Paragraph status = new Paragraph(String.valueOf(todo.getState()));
-                Paragraph space = new Paragraph("---------------------------------");
+        try {
+            archivo = new FileOutputStream("ToDos.pdf");
+            PdfWriter.getInstance(documento, archivo);
+            documento.open();
+            titulo.setAlignment(1);
+            documento.add(titulo);
+            documento.add(new Paragraph("Nombre: " + this.user.getName()));
+            documento.add(Chunk.NEWLINE);
 
-                documento.add(setTitle);
-                documento.add(title);
-                documento.add(setDescription);
-                documento.add(description);
-                documento.add(setPriority);
-                documento.add(priority);
-                documento.add(setStatus);
-                documento.add(status);
-                documento.add(space);
+            PdfPTable table = new PdfPTable(4);
+            table.setWidthPercentage(100);
+            PdfPCell name = new PdfPCell(new Phrase("Title"));
+            name.setBackgroundColor(BaseColor.LIGHT_GRAY);
+            PdfPCell prioriry = new PdfPCell(new Phrase("Priority"));
+            prioriry.setBackgroundColor(BaseColor.LIGHT_GRAY);
+            PdfPCell deadLine = new PdfPCell(new Phrase("DeadLine"));
+            deadLine.setBackgroundColor(BaseColor.LIGHT_GRAY);
+            PdfPCell status = new PdfPCell(new Phrase("Status"));
+            status.setBackgroundColor(BaseColor.LIGHT_GRAY);
+
+            table.addCell(name);
+            table.addCell(prioriry);
+            table.addCell(deadLine);
+            table.addCell(status);
+
+            for (ToDo toDo: this.user.getToDos()) {
+                table.addCell(toDo.getTitle());
+                table.addCell(toDo.getPriority().toString());
+                table.addCell(toDo.getDate_range().getEndDate().toString());
+                table.addCell(toDo.getState().toString());
             }
 
+            documento.add(table);
+            documento.add(Chunk.NEWLINE);
             documento.close();
-
-            JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-            logger.info("Event export pdf: Successful");
+            logger.info("Event export excel: Successful");
+        } catch (DocumentException ex) {
+            ex.printStackTrace();
+            logger.error("Export excel: Error : "+ex);
         } catch (FileNotFoundException ex) {
-            System.out.println(ex.getMessage());
-            logger.error("Event export pdf: Error : "+ex);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-            logger.error("Event export pdf: Error : "+ex);
+            ex.printStackTrace();
+            logger.error("Export excel: Error : "+ex);
         }
     }
 }

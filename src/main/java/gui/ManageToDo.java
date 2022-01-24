@@ -10,7 +10,6 @@ import file.LoadFile;
 import file.SaveFile;
 import helpers.DateFormatter;
 
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
