@@ -4,18 +4,19 @@ import entities.ToDo;
 import entities.User;
 import interfaces.exportDocument;
 import lombok.AllArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-
 import javax.swing.*;
 import java.io.FileOutputStream;
-
 
 @AllArgsConstructor
 public class toExcel implements exportDocument {
 
     private User user;
+    private static final Logger logger = LogManager.getLogger(toExcel.class.getClass());
 
     @Override
     public void export() {
@@ -61,11 +62,11 @@ public class toExcel implements exportDocument {
             workbook.write(fileout);
             fileout.close();
             workbook.close();
-            System.out.println("Excel created");
             JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            logger.info("Event export excel: Successful");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            logger.error("Export excel: Error : "+ex);
         }
     }
 }

@@ -10,21 +10,19 @@ import entities.User;
 
 import interfaces.exportDocument;
 import lombok.AllArgsConstructor;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-
-
-
-
 @AllArgsConstructor
 public class toPdf implements exportDocument {
 
     private User user;
+    private static final Logger logger = LogManager.getLogger(toPdf.class.getClass());
 
     @Override
     public void export() {
@@ -56,12 +54,14 @@ public class toPdf implements exportDocument {
 
             documento.close();
 
-            System.out.println("PDF creado!");
             JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+            logger.info("Event export pdf: Successful");
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());
+            logger.error("Event export pdf: Error : "+ex);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
+            logger.error("Event export pdf: Error : "+ex);
         }
     }
 }
