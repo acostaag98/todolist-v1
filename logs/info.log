@@ -1,0 +1,4 @@
+[23:47:31:954] - [24-01-2022] - [AWT-EventQueue-0] - [INFO] - export.toTxt.export(toTxt.java:44) - Event export txt: Successful
+[23:48:23:448] - [24-01-2022] - [AWT-EventQueue-0] - [INFO] - export.toPdf.export(toPdf.java:69) - Event export excel: Successful
+[23:48:28:262] - [24-01-2022] - [AWT-EventQueue-0] - [INFO] - export.toPdf.export(toPdf.java:69) - Event export excel: Successful
+[23:48:40:843] - [24-01-2022] - [AWT-EventQueue-0] - [INFO] - export.toExcel.export(toExcel.java:66) - Event export excel: Successful
