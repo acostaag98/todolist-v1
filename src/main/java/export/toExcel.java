@@ -58,11 +58,10 @@ public class toExcel implements exportDocument {
                 sh.autoSizeColumn(i);
             }
             //Write the output file
-            FileOutputStream fileout = new FileOutputStream("list.xlsx");
+            FileOutputStream fileout = new FileOutputStream("Exports/list.xlsx");
             workbook.write(fileout);
             fileout.close();
             workbook.close();
-            JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
             logger.info("Event export excel: Successful");
         } catch (Exception ex) {
             ex.printStackTrace();

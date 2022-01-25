@@ -116,14 +116,17 @@ public class ManageToDo extends JFrame {
     public void exportToPdf() {
         toPdf topdf = new toPdf(this.user);
         topdf.export();
+        JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
     public void exportToTxt() throws IOException {
         toTxt totxt = new toTxt(this.user);
         totxt.export();
+        JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
     public void exportToExcel() {
         toExcel toexcel = new toExcel(this.user);
         toexcel.export();
+        JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void loadGUIComponents(){

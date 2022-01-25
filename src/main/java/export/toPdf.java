@@ -32,7 +32,7 @@ public class toPdf implements exportDocument {
     @Override
     public void export() {
         try {
-            archivo = new FileOutputStream("ToDos.pdf");
+            archivo = new FileOutputStream("Exports/ToDos.pdf");
             PdfWriter.getInstance(documento, archivo);
             documento.open();
             titulo.setAlignment(1);
@@ -66,13 +66,13 @@ public class toPdf implements exportDocument {
             documento.add(table);
             documento.add(Chunk.NEWLINE);
             documento.close();
-            logger.info("Event export excel: Successful");
+            logger.info("Event export Pdf: Successful");
         } catch (DocumentException ex) {
             ex.printStackTrace();
-            logger.error("Export excel: Error : "+ex);
+            logger.error("Export Pdf: Error : "+ex);
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
-            logger.error("Export excel: Error : "+ex);
+            logger.error("Export Pdf: Error : "+ex);
         }
     }
 }

@@ -6,7 +6,7 @@ import java.io.*;
 
 public class SaveFile implements Serializable {
 
-    private File miFile = new File("User.todo");
+    private File miFile = new File("BD/User.todo");
     private ObjectOutputStream oos;
 
     public void Guardar(User usuario){

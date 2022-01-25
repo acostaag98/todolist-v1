@@ -6,7 +6,7 @@ import java.io.*;
 
 public class LoadFile implements Serializable {
 
-    private File miFile = new File("User.todo");
+    private File miFile = new File("BD/User.todo");
     private ObjectInputStream ois;
     private User Usuario;
 

@@ -21,7 +21,7 @@ public class toTxt implements exportDocument {
     public void export() throws IOException {
 
         try{
-            FileWriter list = new FileWriter("list.txt");
+            FileWriter list = new FileWriter("Exports/list.txt");
 
             for (ToDo todo : this.user.getToDos()) {
                 list.write("Title: ");
@@ -39,7 +39,6 @@ public class toTxt implements exportDocument {
                 list.write("-------------------------------");
                 list.write("\r\n");
             }
-            JOptionPane.showMessageDialog(null, "The ToDo List has been exported successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
             list.close();
             logger.info("Event export txt: Successful");
         }catch (IOException ex){
